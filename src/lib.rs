@@ -52,7 +52,7 @@ use std::{
 pub use crate::error::{Error, ErrorCode, Result};
 pub use audiopus_sys as ffi;
 
-#[repr(u32)]
+#[repr(i32)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 pub enum Signal {
     Auto = ffi::OPUS_AUTO,
@@ -163,7 +163,7 @@ impl TryFrom<u32> for Application {
 }
 
 /// Represents possible audio channels Opus can use.
-#[repr(u32)]
+#[repr(i32)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 pub enum Channels {
     /// Not supported when constructing encoders or decoders.
@@ -211,7 +211,7 @@ impl From<Channels> for u32 {
 }
 
 /// Represents possible bandwidths of an Opus-stream.
-#[repr(u32)]
+#[repr(i32)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash)]
 pub enum Bandwidth {
     /// Pick the bandwidth automatically.
